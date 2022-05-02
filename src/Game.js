@@ -7,7 +7,6 @@ import PlayerTurn from './components/PlayerTurn';
 import RoomName from './components/RoomName';
 import './Game.css';
 const Game = ({myId, opponentId,  gameData, updateMyMove, winData, opponentLeft, exitFunct}) => {
-  console.log(gameData)
   const handlePlayerInput = (pos) => {
     if(gameData.turn !== myId || winData){
       return;

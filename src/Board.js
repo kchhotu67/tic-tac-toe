@@ -6,7 +6,6 @@ function Board({winData, gameData, handlePlayerInput}) {
   const [showAnim, setShowAnim] = useState(false);
   useEffect(() => {
     if(winData && winData.winner){
-      console.log('showing winning animation');
       setTimeout(() => {
         setShowAnim(true);
       }, 2000)

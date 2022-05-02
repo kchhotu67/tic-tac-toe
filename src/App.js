@@ -30,8 +30,7 @@ function App() {
   }
 
   const joinPrivate = (playerName, roomName) => {
-    // console.log(playerName, roomName);
-    socket.emit("private-room-join", {playerName, roomName})
+    socket.emit('private-room-join', {playerName, roomName});
   }
 
   const getOpponentId = () => {
@@ -57,12 +56,10 @@ function App() {
     if(!socket) return;
 
     socket.on('your-id', (data) => {
-      console.log(data);
       setMyId(data);
     });
 
     socket.on('game-instance', gd => {
-      console.log(gd);
       if(opponentLeft){
         setOpponentLeft(false);
       }
@@ -85,12 +82,10 @@ function App() {
       }
     })
     socket.on('game-over', winData => {
-      console.log(winData);
       setWinData(winData);
     })
 
     socket.on('starting-new-game', gd => {
-      console.log(gd);
       if(gd.active){
         setWinData(null);
         setGameData(gd);
@@ -98,7 +93,6 @@ function App() {
     })
 
     socket.on('room-full', roomName => {
-      console.log(roomName);
       alert(`No more space in '${roomName}' Room`);
     })
 
@@ -117,12 +111,7 @@ function App() {
   }, [socket])
 
   const exitFunct = () => {
-    console.log('hello')
     setRefresh(!refresh);
-    // setGameData(null);
-    // setOpponentLeft(false);
-    // setWinData(null);
-    // setMessage('');
     setTab('menu')
   }
   
